@@ -1,0 +1,20 @@
+#### `.gitignore`
+# xcode noise
+build/*
+dist/*
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserdatad/
+profile
+
+#automated testing &amp; code coverage
+test-reports/*
+coverage/*
+
+# osx noise
+.LSOverride
+*.swp
+.DS_Store
+
