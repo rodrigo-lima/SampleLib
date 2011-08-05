@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3854F6D213EC30270039AB94 /* SampleLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3854F6D013EC30270039AB94 /* SampleLibTests.m */; };
 		386ED10513EB357800637748 /* NSDate+Humanize.m in Sources */ = {isa = PBXBuildFile; fileRef = 386ED10313EB357800637748 /* NSDate+Humanize.m */; };
 		386ED10613EB357800637748 /* NSDate+Humanize.h in Headers */ = {isa = PBXBuildFile; fileRef = 386ED10413EB357800637748 /* NSDate+Humanize.h */; };
 		38B01A2113EB31890025FE2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B01A2013EB31890025FE2B /* Foundation.framework */; };
@@ -29,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3854F6D013EC30270039AB94 /* SampleLibTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleLibTests.m; sourceTree = "<group>"; };
+		3854F6D113EC30270039AB94 /* SampleLibTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleLibTests.h; sourceTree = "<group>"; };
 		386ED10313EB357800637748 /* NSDate+Humanize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Humanize.m"; sourceTree = "<group>"; };
 		386ED10413EB357800637748 /* NSDate+Humanize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Humanize.h"; sourceTree = "<group>"; };
 		386ED10D13EB40A000637748 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 		38B01A3813EB31890025FE2B /* SampleLibTests */ = {
 			isa = PBXGroup;
 			children = (
+				3854F6D013EC30270039AB94 /* SampleLibTests.m */,
+				3854F6D113EC30270039AB94 /* SampleLibTests.h */,
 				38B01A3913EB31890025FE2B /* Supporting Files */,
 			);
 			path = SampleLibTests;
@@ -268,6 +273,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3854F6D213EC30270039AB94 /* SampleLibTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +381,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleLib/SampleLib-Prefix.pch";
 				INFOPLIST_FILE = "SampleLibTests/SampleLibTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-framework",
+					SenTestingKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -390,6 +401,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleLib/SampleLib-Prefix.pch";
 				INFOPLIST_FILE = "SampleLibTests/SampleLibTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-framework",
+					SenTestingKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};

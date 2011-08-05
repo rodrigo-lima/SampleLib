@@ -35,11 +35,10 @@ typedef struct {
 - (NSString *)humanizedDescription
 {
     NSString *_humanized;
+    NSDateFormatter *_formatter = [[NSDateFormatter alloc] init];
     if ([self isOnTheSameDayAsDate:[NSDate date]]) {
-        NSDateFormatter *_formatter = [[NSDateFormatter alloc] init];
         [_formatter setTimeStyle:NSDateFormatterShortStyle];
         _humanized = [_formatter stringFromDate:self];
-        [_formatter release];
     }
     else if ([self isOnTheSameDayAsDate:[NSDate dateWithTimeIntervalSinceNow:-DAY_IN_SECONDS]]) {
         _humanized = NSLocalizedString(@"Yesterday", nil);
@@ -51,10 +50,8 @@ typedef struct {
         NSTimeInterval _delta = -[self timeIntervalSinceNow];
         // handle future dates
         if (_delta < 0) {
-            NSDateFormatter *_formatter = [[NSDateFormatter alloc] init];
             [_formatter setDateStyle:kCFDateFormatterMediumStyle];
             _humanized = [_formatter stringFromDate:self];
-            [_formatter release];
         }
         else if (_delta < TWO_WEEKS_IN_SECONDS) {
             HumanizedIntervalType _day = {DAY_IN_SECONDS, 13};
@@ -69,19 +66,13 @@ typedef struct {
             HumanizedIntervalType _week = {WEEK_IN_SECONDS, 4};
             _humanized = [NSDate humanizedDescriptionFromInterval:_delta forType:_week];
         }
-        else if (_delta < YEAR_IN_SECONDS) {
-            HumanizedIntervalType _month = {MONTH_IN_SECONDS, 11};
-            _humanized = [NSDate humanizedDescriptionFromInterval:_delta forType:_month];
-        }
-        else if (_delta < DECADE_IN_SECONDS) {
-            HumanizedIntervalType _year = {YEAR_IN_SECONDS, 9};
-            _humanized = [NSDate humanizedDescriptionFromInterval:_delta forType:_year];
-        }
         else {
-            HumanizedIntervalType _decade = {DECADE_IN_SECONDS, 9};
-            _humanized = [NSDate humanizedDescriptionFromInterval:_delta forType:_decade];
+            [_formatter setDateStyle:kCFDateFormatterMediumStyle];
+            _humanized = [_formatter stringFromDate:self];
         }
     }
+    // release the formatter
+    [_formatter release];
     return _humanized;
 }
 
@@ -112,18 +103,6 @@ typedef struct {
     else if (type.interval == WEEK_IN_SECONDS) {
         if (units == 1) _humanizedDesc = NSLocalizedString(@"1 week ago",nil);
         else _humanizedDesc = [NSString stringWithFormat:NSLocalizedString(@"%d weeks ago", "how many weeks ago. i.e. '3 weeks ago'"), units];
-    }
-    else if (type.interval == MONTH_IN_SECONDS) {
-        if (units == 1) _humanizedDesc = NSLocalizedString(@"1 month ago",nil);
-        else _humanizedDesc = [NSString stringWithFormat:NSLocalizedString(@"%d months ago", "how many month ago. i.e. '3 month ago'"), units];
-    }
-    else if (type.interval == YEAR_IN_SECONDS) {
-        if (units == 1) _humanizedDesc = NSLocalizedString(@"1 year ago",nil);
-        else _humanizedDesc = [NSString stringWithFormat:NSLocalizedString(@"%d years ago", "how many years ago. i.e. '3 years ago'"), units];
-    }
-    else if (type.interval == DECADE_IN_SECONDS) {
-        if (units == 1) _humanizedDesc = NSLocalizedString(@"1 decade ago",nil);
-        else _humanizedDesc = [NSString stringWithFormat:NSLocalizedString(@"%d decades ago", "how many decades ago. i.e. '3 decades ago'"), units];
     }
     return _humanizedDesc;
 }
