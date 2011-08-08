@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3854F6D213EC30270039AB94 /* SampleLibTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3854F6D013EC30270039AB94 /* SampleLibTests.m */; };
 		386ED10513EB357800637748 /* NSDate+Humanize.m in Sources */ = {isa = PBXBuildFile; fileRef = 386ED10313EB357800637748 /* NSDate+Humanize.m */; };
-		386ED10613EB357800637748 /* NSDate+Humanize.h in Headers */ = {isa = PBXBuildFile; fileRef = 386ED10413EB357800637748 /* NSDate+Humanize.h */; };
+		386ED10613EB357800637748 /* NSDate+Humanize.h in Headers */ = {isa = PBXBuildFile; fileRef = 386ED10413EB357800637748 /* NSDate+Humanize.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38B01A2113EB31890025FE2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B01A2013EB31890025FE2B /* Foundation.framework */; };
 		38B01A2F13EB31890025FE2B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B01A2E13EB31890025FE2B /* SenTestingKit.framework */; };
 		38B01A3113EB31890025FE2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38B01A3013EB31890025FE2B /* UIKit.framework */; };
