@@ -3,4 +3,4 @@ some more changes here
 
 
 
-hello there MASTER
+NO MASTER -- CLIENT here 
