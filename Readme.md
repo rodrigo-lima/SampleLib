@@ -1,5 +1,4 @@
 ## SampleLib Readme
-erwqe
 
 Now, this is really a __markdown__ document.
 
